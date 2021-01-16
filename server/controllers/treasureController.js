@@ -18,5 +18,11 @@ module.exports = {
               userTreasure = await db.add_user_treasure([treasureURL, id]);
         
         res.status(200).send(userTreasure);
+    },
+    getAllTreasure: async(req, res) => {
+        const db = req.app.get('db'),
+              treasure = await db.get_all_treasure();
+
+        return res.status(200).send(treasure);
     }
 }
